@@ -4,9 +4,32 @@ import sys
 pygame.init()
 
 # Set this to False if you don't want to see progress
-PROGRESS = True
+PROGRESS = False
 
 data = []
+'''
+data.append("""
+000600400
+700003600
+000091080
+000000000
+050180003
+000306045
+040200060
+903000000
+020000100""")
+
+data.append("""
+000260701
+680070090
+190004500
+820100040
+004602900
+050003028
+009300074
+040050036
+703018000""")
+'''
 data.append("""
 800000000
 003600000
@@ -18,6 +41,7 @@ data.append("""
 008500010
 090000400
 """)
+'''
 data.append("""
 0120070560
 507932080
@@ -29,6 +53,7 @@ data.append("""
 080423701
 034010028
 """)
+'''
 
 # Window settings
 WIDTH = 9
@@ -90,7 +115,7 @@ def draw():
             cx = j*BOX_SIZE
             cy = i*BOX_SIZE
             if GRID[i][j] != 0:
-                color = BLACK if D[i][j] != 0 else ORANGE
+                color = BLACK if D[i][j] != 0 else RED
                 label = font.render(str(GRID[i][j]), 1, color)
                 screen.blit(label, (cx+15, cy+5))
             r = pygame.Rect(cx, cy, BOX_SIZE, BOX_SIZE)
@@ -108,6 +133,8 @@ BLACK = (000, 000, 000)
 WHITE = (255, 255, 255)
 GREY = (127, 127, 127)
 ORANGE = (255, 127, 000)
+RED = (255, 000, 000)
+
 screen = pygame.display.set_mode(size)
 screen.fill(WHITE)
 
@@ -147,3 +174,4 @@ while 1:
     if Y == 9:
         X += 1
         Y = 0
+        
